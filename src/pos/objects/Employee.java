@@ -1,15 +1,9 @@
 package pos.objects;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class Employee {
-	/**
-	 * list of all employees
-	 * temporary- might move to a controller later
-	 */
-	private List<Employee> employees = new ArrayList<>();
 
 	private String firstName;
 	private String lastName;
@@ -55,12 +49,10 @@ public class Employee {
 	public Employee() {
 		this("first name not provided", "last name not provided", new HashMap<String, String>(), -9,
 				"address not provided", "pay type not specified", -9, "email was not provided", -9);
-		employees.add(this);
 	}
 
 	public Employee(String firstName, String lastName, HashMap<String, String> account, int SSN, String address,
 			String payType, int phoneNumber, String email, int wage) {
-		employees.add(this);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setAccount(account);
@@ -70,10 +62,6 @@ public class Employee {
 		setEmail(email);
 		setPhoneNumber(phoneNumber);
 		setWage(wage);
-	}
-
-	public void fire() {
-		employees.remove(this);
 	}
 
 	public void resetHoursWorked() {
@@ -98,14 +86,6 @@ public class Employee {
 
 	public void setAccount(HashMap<String, String> account) {
 		this.account = account;
-	}
-
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
 	}
 
 	public String getFirstName() {
