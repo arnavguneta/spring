@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="base" prefHeight="462.0" prefWidth="425.0" style="-fx-background-color: white;" stylesheets="@styles/stylesheet.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.EmployeeController">
+    <children>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <Button mnemonicParsing="false" onAction="#loadHome" text="Home" textFill="WHITE" />
+                <Button mnemonicParsing="false" onAction="#add" text="Add" textFill="WHITE" />
+                <Button mnemonicParsing="false" onAction="#edit" text="Edit" textFill="WHITE" />
+                <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" text="Delete" textFill="WHITE" />
+            </items>
+        </ToolBar>
+        <ToolBar layoutX="7.0" layoutY="421.0" prefHeight="40.0" prefWidth="554.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <items>
+                <Button mnemonicParsing="false" onAction="#save" prefHeight="27.0" prefWidth="51.0" text="Save" textFill="WHITE" />
+                <AnchorPane prefHeight="28.0" prefWidth="216.0">
+                    <children>
+                        <Label fx:id="error1" layoutX="42.0" layoutY="3.0" prefHeight="23.0" prefWidth="213.0" text="Field(s) cannot be empty" textFill="#ff0202">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </items>
+        </ToolBar>
+        <TextField fx:id="name" editable="false" layoutX="23.0" layoutY="60.0" promptText="Ex: John Doe" />
+        <TextField fx:id="username" editable="false" layoutX="23.0" layoutY="120.0" promptText="Ex: johndoe" />
+        <TextField fx:id="password" editable="false" layoutX="23.0" layoutY="180.0" promptText="Ex: 0000" />
+        <TextField fx:id="SSN" editable="false" layoutX="23.0" layoutY="240.0" promptText="Ex: 0000" />
+        <Label layoutX="30.0" layoutY="90.0" text="Name" />
+        <Label layoutX="30.0" layoutY="150.0" text="Username" />
+        <Label layoutX="30.0" layoutY="210.0" text="Password" />
+        <Label layoutX="30.0" layoutY="270.0" text="Last Four Digits of SSN" />
+        <TextField fx:id="email" editable="false" layoutX="240.0" layoutY="60.0" promptText="Ex: johndoe@example.com" />
+        <Label layoutX="247.0" layoutY="90.0" text="Email" />
+        <TextField fx:id="phoneNumber" editable="false" layoutX="240.0" layoutY="120.0" promptText="Ex: (000) 000-0000" />
+        <Label layoutX="247.0" layoutY="150.0" text="Phone Number" />
+        <TextField fx:id="wage" editable="false" layoutX="240.0" layoutY="180.0" promptText="Ex: 7.25 " />
+        <TextField fx:id="address" editable="false" layoutX="240.0" layoutY="240.0" promptText="Ex: 2443 Matthews Street" />
+        <Label layoutX="247.0" layoutY="210.0" text="Wage" />
+        <Label layoutX="247.0" layoutY="270.0" text="Address" />
+        <Label fx:id="nameV" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="60.0" text="Label" textAlignment="CENTER" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="usernameV" layoutX="30.0" layoutY="120.0" text="Label" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="passwordV" layoutX="30.0" layoutY="180.0" text="Label" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="SSNV" layoutX="30.0" layoutY="240.0" text="Label" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="emailV" layoutX="247.0" layoutY="60.0" text="Label" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="phoneNumberV" layoutX="247.0" layoutY="120.0" text="Label" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="wageV" layoutX="247.0" layoutY="180.0" text="Label" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="addressV" layoutX="247.0" layoutY="240.0" text="Label" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

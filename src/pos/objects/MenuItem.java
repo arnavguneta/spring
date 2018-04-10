@@ -1,43 +1,63 @@
-package application;
+package pos.objects;
+
+import javafx.beans.property.SimpleStringProperty;
+
+/**
+ * APCS-A Spring Project
+ * Arnav Guneta and Andrew Ferrar
+ * Period 2
+ * Johns Creek High School
+ * POS System
+ * 4/11/18
+ */
 
 public class MenuItem {
-	//Heres all the fields you wanted 
-	private String name;
-	private int amount;
-	private int price;
-	
-	//Full constructor 
-	public MenuItem(String name, int amount, int price) {
-		this.name = name;
-		this.amount = amount;
-		this.price = price;
-	}
-	
-	
-	//Getters and Setters 
-	public String getName() {
-		return name;
+	// fields, SimpleProperty for TableView obj
+	private final SimpleStringProperty item;
+	private final SimpleStringProperty q;
+	private final SimpleStringProperty price;
+
+	// full constructor
+	public MenuItem(String q, String item, String price) {
+		this.q = new SimpleStringProperty(q);
+		this.item = new SimpleStringProperty(item);
+		this.price = new SimpleStringProperty(price);
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	// getters and setters
+	public String getItem() {
+		return item.get();
 	}
 
-	public int getAmount() {
-		return amount;
+	public void setItem(String item) {
+		this.item.set(item);
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public SimpleStringProperty itemProperty() {
+		return item;
 	}
 
-	public int getPrice() {
+	public String getQ() {
+		return q.get();
+	}
+
+	public void setQ(String q) {
+		this.q.set(q);
+	}
+
+	public SimpleStringProperty qProperty() {
+		return q;
+	}
+
+	public String getPrice() {
+		return price.get();
+	}
+
+	public void setPrice(String price) {
+		this.price.set(price);
+	}
+
+	public SimpleStringProperty priceProperty() {
 		return price;
 	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-	
-	
 }
