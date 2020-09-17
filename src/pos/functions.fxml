@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="base" prefHeight="350.0" prefWidth="450.0" style="-fx-background-color: white;" stylesheets="@styles/stylesheet.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.FunctionController">
    <children>
       <Button layoutX="14.0" layoutY="296.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="37.0" prefWidth="85.0" text="Home" textFill="WHITE" />
@@ -29,5 +28,15 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Label fx:id="salary" layoutX="14.0" layoutY="58.0" text="Salary: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="327.0" layoutY="147.0" mnemonicParsing="false" onAction="#loadPayOut" prefHeight="100.0" prefWidth="100.0" text="Pay Out" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -9,6 +9,7 @@ package pos;
  * 4/11/18
  */
 
+import com.sun.xml.internal.ws.api.model.ExceptionType;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -16,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import pos.objects.Employee;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -136,15 +138,19 @@ public class EmployeeController {
 			// closes the tab
 			lc.getProductpane().getTabs().remove(lc.getProductpane().getSelectionModel().getSelectedIndex());
 
+			int i = -1;
 			// from the list view, compare the names with the tab names
 			for (String s : lc.getObs()) {
 				// if it does match, remove it from the list and update the list view
 				if (s.equalsIgnoreCase(name)) {
-					lc.getObs().remove(s);
-					lc.getemployeelist().setItems(lc.getObs());
+					i = lc.getObs().indexOf(s);
 				}
 			}
 
+			if (i != -1) {
+				lc.getObs().remove(i);
+				lc.getemployeelist().setItems(lc.getObs());
+			}
 		}
 	}
 
@@ -178,13 +184,32 @@ public class EmployeeController {
 			e.setPhoneNumber(phoneNumber.getText());
 
 		} catch (Exception ex) {
+			if (ex instanceof ArrayIndexOutOfBoundsException) {
+				error1.setText("Please enter your first and last name");
+				name.styleProperty().setValue("-fx-background-color: red , white , white; ");
+				error1.setVisible(true);
+			}
 			// if save was pressed and some fields were null
 			// goes through all fields
-			for (TextField field : fields) {
-				// if the field is empty, make it red and pop up an error
-				if (field.getText().isEmpty()) {
+			if (ex instanceof NumberFormatException) {
+				if (!wage.getText().contains("[0-9]+")) {
+					error1.setText("Wage and SSN are numeric values");
+					wage.styleProperty().setValue("-fx-background-color: red , white , white; ");
 					error1.setVisible(true);
-					field.styleProperty().setValue("-fx-background-color: red , white , white; ");
+				}
+				if (!SSN.getText().contains("[0-9]+")) {
+					error1.setText("Wage and SSN are numeric values");
+					SSN.styleProperty().setValue("-fx-background-color: red , white , white; ");
+					error1.setVisible(true);
+				}
+
+				for (TextField field : fields) {
+					// if the field is empty, make it red and pop up an error
+					if (field.getText().isEmpty()) {
+						error1.setText("Field(s) cannot be empty");
+						error1.setVisible(true);
+						field.styleProperty().setValue("-fx-background-color: red , white , white; ");
+					}
 				}
 			}
 		}

@@ -19,6 +19,7 @@ import pos.objects.Employee;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -199,11 +200,24 @@ public class ListController {
 	public void save() {
 		try {
 
+			Iterator<Employee> iter = employees.iterator();
+
+			while (iter.hasNext()) {
+				Employee e = iter.next();
+
+				if ((e.getSSN() == -9))
+					iter.remove();
+			}
+
+			obs.clear();
+			for (int i = 1; i <= employees.size(); i++) {
+				obs.add("Employee " + i);
+			}
+
 			FileOutputStream fos = new FileOutputStream("employees.dat");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(employees);
 			oos.close();
-
 			// print this out and read it instead of using oos
 			PrintWriter pw = new PrintWriter(new FileOutputStream("obs.dat"));
 			for (String s : obs) {
@@ -213,6 +227,7 @@ public class ListController {
 			pw.close();
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Error saving");
 		}
 	}

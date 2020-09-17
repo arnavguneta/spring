@@ -104,8 +104,13 @@ public class HomeController {
 				ampm = "PM";
 			}
 
-			if (second < 10)
-				timeLabel.setText(hour + ":" + (minute) + ":0" + (second) + " " + ampm);
+			if (second < 10 && second < 10)
+				timeLabel.setText(hour + ":0" + (minute) + ":0" + (second) + " " + ampm);
+			else if (minute < 10)
+				timeLabel.setText(hour + ":0" +(minute) + ":" + (second) + " " + ampm);
+			else if (second < 10) {
+				timeLabel.setText(hour + ":0" + (minute) + ":" + (second) + " " + ampm);
+			}
 			else
 				timeLabel.setText(hour + ":" + (minute) + ":" + (second) + " " + ampm);
 

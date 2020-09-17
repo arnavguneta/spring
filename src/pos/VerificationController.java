@@ -1,15 +1,19 @@
 package pos;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pos.objects.Employee;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
@@ -34,6 +38,7 @@ public class VerificationController {
 	@FXML private TextField username;
 	@FXML private TextField password;
 	@FXML private Label error;
+	@FXML private Button login;
 
 	// field vars
 	private boolean verified;
@@ -66,6 +71,8 @@ public class VerificationController {
 		} catch (Exception e) {
 			System.out.println("File couldn't be loaded");
 		}
+
+		onEnter();
 
 	}
 
@@ -139,6 +146,15 @@ public class VerificationController {
 			username.styleProperty().setValue("-fx-background-color: red , white , white; ");
 			password.styleProperty().setValue("-fx-background-color: red , white , white; ");
 		}
+	}
+
+	@FXML
+	public void onEnter(){
+		password.setOnKeyReleased(event -> {
+			if (event.getCode() == KeyCode.ENTER){
+				check();
+			}
+		});
 	}
 
 	// getters and setters

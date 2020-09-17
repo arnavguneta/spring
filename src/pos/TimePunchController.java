@@ -123,9 +123,15 @@ public class TimePunchController {
 			String tempTime = new SimpleDateFormat("hh:mm:ss").format(new Date());
 			String[] tempTimeSplit = tempTime.split(":");
 			String[] timeSplit = time.split(":");
+			double hours = 0;
 			//total hours: gets the hour difference, gets the minute difference- divided by 60 to convert to hours
-			double hours = (Math.abs(Double.parseDouble(timeSplit[0]) - Double.parseDouble(tempTimeSplit[0]))) + (
-					(Math.abs(Double.parseDouble(timeSplit[1]) - Double.parseDouble(tempTimeSplit[1]))) / 60);
+			if ((Math.abs(Double.parseDouble(timeSplit[0]) - Double.parseDouble(tempTimeSplit[0]))) == 0) {
+				hours = (Math.abs(Double.parseDouble(timeSplit[0]) - Double.parseDouble(tempTimeSplit[0]))) + (
+						(Math.abs(Double.parseDouble(timeSplit[1]) - Double.parseDouble(tempTimeSplit[1]))) / 60);
+			} else {
+				hours = (Math.abs(Double.parseDouble(timeSplit[0]) - Double.parseDouble(tempTimeSplit[0]))) + (
+						((60 - Math.abs(Double.parseDouble(timeSplit[1])) + Double.parseDouble(tempTimeSplit[1]))) / 60);
+			}
 			NumberFormat formatter = new DecimalFormat("#0.00");
 			// display hours worked for current session
 			totalHours.setText("Total Hours: " + formatter.format(hours));
@@ -183,7 +189,12 @@ public class TimePunchController {
 		updateTable(stamp);
 		toggleBtns();
 
-		employee.setHoursWorkedWeek(employee.getHoursWorkedWeek() + Double.parseDouble(totalHours.getText()));
+		double totHours = 0;
+		if (totalHours.getText().contains("Total Hours: ")) {
+			totHours = Double.parseDouble(totalHours.getText().replace("Total Hours: ", ""));
+		}
+
+		employee.setHoursWorkedWeek(employee.getHoursWorkedWeek() + totHours);
 	}
 
 	/**

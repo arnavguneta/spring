@@ -20,7 +20,7 @@
          <items>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Accordion>
+                  <Accordion expandedPane="$orderPane">
                     <panes>
                       <TitledPane fx:id="orderPane" animated="false" prefWidth="198.0" text="Order">
                         <content>

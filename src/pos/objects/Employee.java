@@ -45,7 +45,7 @@ public class Employee implements Serializable {
 	/**
 	 * after clockOUT, add hoursWorkedDay to this
 	 */
-	private double hoursWorkedWeek;
+	private double hoursWorkedWeek = 0;
 	private double wage;
 
 	// null constructor

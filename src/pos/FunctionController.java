@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.text.DecimalFormat;
+
 /**
  * APCS-A Spring Project
  * Arnav Guneta and Andrew Ferrar
@@ -25,7 +27,9 @@ public class FunctionController {
 	// gui vars
 	@FXML private AnchorPane base;
 	@FXML private Label username;
+	@FXML private Label salary;
 
+	private DecimalFormat df = new DecimalFormat("0.00");
 	public FunctionController() {
 
 	}
@@ -39,6 +43,7 @@ public class FunctionController {
 	public void initialize() {
 		CashINController.getFunctionControllerInstance(this);
 		username.setText("User: " + hc.getE().getFirstName() + " " + hc.getE().getLastName());
+		salary.setText("Salary: $" + df.format(hc.getE().getHoursWorkedWeek() * hc.getE().getWage()));
 	}
 
 	// loads sales with the appropriate base
@@ -50,6 +55,10 @@ public class FunctionController {
 	// opens cash in screen
 	public void loadCashIN() {
 		hc.loadStage("cashin", base, "Cash In", 482, 460);
+	}
+
+	public void loadPayOut() {
+		hc.loadStage("payout", base, "Pay Out", 507, 400);
 	}
 
 	// loads home
