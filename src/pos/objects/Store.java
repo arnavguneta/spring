@@ -1,16 +1,19 @@
 package pos.objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-APCS-A PSET 0-0
-Arnav Guneta
-Period 2
-Johns Creek High School
-3/21/18 
+/**
+ * APCS-A Spring Project
+ * Arnav Guneta and Andrew Ferrar
+ * Period 2
+ * Johns Creek High School
+ * POS System
+ * 4/11/18
  */
-public class Store {
+
+public class Store implements Serializable{
 
 	/**
 	 * list of all employees
@@ -24,29 +27,29 @@ public class Store {
 	private String address;
 	/**
 	 * time
-	 * hour.minute
 	 * used to compute hours worked for the day
 	 */
-	private double closing;
-	private double opening;
+	private String closing;
+	private String opening;
 	/**
 	 * owner passed in as an employee object
 	 */
-	private Employee owner;
-	private int phone;
+	private String phone;
 
+	// null constructor
 	public Store() {
-		this("address not provided", -9.0, -9.0, new Employee(), -9);
+		this("address not provided", "closing not provided", "opening not provided", "phone number not provided");
 	}
 
-	public Store(String address, double closing, double opening, Employee owner, int phone) {
+	// full constructor
+	public Store(String address, String closing, String opening, String phone) {
 		setAddress(address);
 		setClosing(closing);
 		setOpening(opening);
-		setOwner(owner);
 		setPhone(phone);
 	}
 
+	// getters and setters
 	public List<Employee> getEmployees() {
 		return employees;
 	}
@@ -63,35 +66,27 @@ public class Store {
 		this.address = address;
 	}
 
-	public double getClosing() {
+	public String getClosing() {
 		return closing;
 	}
 
-	public void setClosing(double closing) {
+	public void setClosing(String closing) {
 		this.closing = closing;
 	}
 
-	public double getOpening() {
+	public String getOpening() {
 		return opening;
 	}
 
-	public void setOpening(double opening) {
+	public void setOpening(String opening) {
 		this.opening = opening;
 	}
 
-	public Employee getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Employee owner) {
-		this.owner = owner;
-	}
-
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 }

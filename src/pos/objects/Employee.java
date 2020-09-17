@@ -1,17 +1,24 @@
 package pos.objects;
 
-import java.util.HashMap;
+import java.io.Serializable;
 import java.util.List;
 
-public class Employee {
+/**
+ * APCS-A Spring Project
+ * Arnav Guneta and Andrew Ferrar
+ * Period 2
+ * Johns Creek High School
+ * POS System
+ * 4/11/18
+ */
 
+public class Employee implements Serializable {
+
+	// basic field variables
 	private String firstName;
 	private String lastName;
-	/**
-	 * HashMap for username, password
-	 * username is the key, password is the value accessed
-	 */
-	private HashMap<String, String> account;
+	private String username;
+	private String password;
 	/**
 	 * last 4 digits of SSN
 	 */
@@ -26,36 +33,35 @@ public class Employee {
 	 * 3 forms: direct deposit, check, cash
 	 */
 	private String payType;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String email;
 	/**
-	 * time
-	 * hour.minute
-	 * used to compute hours worked for the day
+	 * clockIN/ clockOUT stamps
+	 * saved in employee object and used for time punch screen
 	 */
-	private double clockIN;
-	private double clockOUT;
-	/**
-	 * displayed on the GUI
-	 * convert clockIN and clockOUT to amount of hours in decimals
-	 */
-	private double hoursWorkedDay;
+	private List<String> clockIN;
+	private List<String> clockOUT;
+
 	/**
 	 * after clockOUT, add hoursWorkedDay to this
 	 */
-	private double hoursWorkedWeek;
+	private double hoursWorkedWeek = 0;
 	private double wage;
 
+	// null constructor
 	public Employee() {
-		this("first name not provided", "last name not provided", new HashMap<String, String>(), -9,
-				"address not provided", "pay type not specified", -9, "email was not provided", -9);
+		this("first name not provided", "last name not provided", "username not provided", "password not provided", -9,
+				"address not provided", "pay type not specified", "phone number not provided", "email was not provided",
+				-9);
 	}
 
-	public Employee(String firstName, String lastName, HashMap<String, String> account, int SSN, String address,
-			String payType, int phoneNumber, String email, int wage) {
+	// full constructor
+	public Employee(String firstName, String lastName, String username, String password, int SSN, String address,
+			String payType, String phoneNumber, String email, int wage) {
 		setFirstName(firstName);
 		setLastName(lastName);
-		setAccount(account);
+		setUsername(username);
+		setPassword(password);
 		setSSN(SSN);
 		setAddress(address);
 		setPayType(payType);
@@ -64,6 +70,7 @@ public class Employee {
 		setWage(wage);
 	}
 
+	// getters and setters
 	public void resetHoursWorked() {
 		this.setHoursWorkedWeek(0);
 	}
@@ -80,12 +87,20 @@ public class Employee {
 		this.wage = wage;
 	}
 
-	public HashMap<String, String> getAccount() {
-		return account;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setAccount(HashMap<String, String> account) {
-		this.account = account;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getFirstName() {
@@ -128,11 +143,11 @@ public class Employee {
 		this.payType = payType;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -144,28 +159,20 @@ public class Employee {
 		this.email = email;
 	}
 
-	public double getClockIN() {
+	public List<String> getClockIN() {
 		return clockIN;
 	}
 
-	public void setClockIN(double clockIN) {
+	public void setClockIN(List<String> clockIN) {
 		this.clockIN = clockIN;
 	}
 
-	public double getClockOUT() {
+	public List<String> getClockOUT() {
 		return clockOUT;
 	}
 
-	public void setClockOUT(double clockOUT) {
+	public void setClockOUT(List<String> clockOUT) {
 		this.clockOUT = clockOUT;
-	}
-
-	public double getHoursWorkedDay() {
-		return hoursWorkedDay;
-	}
-
-	public void setHoursWorkedDay(double hoursWorkedDay) {
-		this.hoursWorkedDay = hoursWorkedDay;
 	}
 
 	public double getHoursWorkedWeek() {

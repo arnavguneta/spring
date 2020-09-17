@@ -1,13 +1,17 @@
 package pos.objects;
 
-/*
-APCS-A PSET 0-0
-Arnav Guneta
-Period 2
-Johns Creek High School
-2/14/18 
+import java.io.Serializable;
+
+/**
+ * APCS-A Spring Project
+ * Arnav Guneta and Andrew Ferrar
+ * Period 2
+ * Johns Creek High School
+ * POS System
+ * 4/11/18
  */
-public class Register {
+
+public class Register implements Serializable {
 	/**
 	 * change drawer (separate from the register)
 	 * change should always be $200
@@ -26,18 +30,20 @@ public class Register {
 	 */
 	private double cashIN;
 
+	// null constructor
 	public Register() {
 		setChange(-10);
 		setTotal(-10);
 		setCashIN(-10);
 	}
 
-	public Register(double change, double total, double cashIN) {
+	// full constructor
+	public Register(double change, double total) {
 		setChange(change);
 		setTotal(total);
-		setCashIN(cashIN);
 	}
 
+	// getters and setters
 	public double cashReport(double cashIN) {
 		return total - cashIN;
 	}

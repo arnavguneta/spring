@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="spring.jnlp">
+  <information>
+    <title>spring</title>
+    <vendor>Unknown</vendor>
+    <description>spring</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="spring.jar" size="52230" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="pos.Main"  name="spring" />
+  <update check="background"/>
+</jnlp>

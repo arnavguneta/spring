@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="461.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/9"
+            fx:controller="pos.ListController">
+    <children>
+        <MenuBar layoutX="-2.0" prefHeight="27.0" prefWidth="623.0" AnchorPane.leftAnchor="-0.0"
+                 AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Mode">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#viewMode" text="View Mode">
+                            <accelerator>
+                                <KeyCodeCombination alt="DOWN" code="V" control="UP" meta="UP" shift="UP"
+                                                    shortcut="UP"/>
+                            </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#editMode" text="Edit Mode">
+                            <accelerator>
+                                <KeyCodeCombination alt="DOWN" code="E" control="UP" meta="UP" shift="UP"
+                                                    shortcut="UP"/>
+                            </accelerator>
+                        </MenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Reset"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane layoutY="27.0" prefHeight="438.0" prefWidth="183.0" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0">
+            <items>
+                <Accordion prefHeight="408.0" prefWidth="225.0" expandedPane="$records">
+                    <panes>
+                        <TitledPane fx:id="records" animated="false" text="Employees">
+                            <content>
+                                <AnchorPane>
+                                    <children>
+                                        <ListView fx:id="employeelist" layoutX="-19.0" layoutY="-12.0"
+                                                  prefHeight="296.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+                                                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                  AnchorPane.topAnchor="0.0"/>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+            </items>
+        </SplitPane>
+        <TabPane fx:id="productpane" layoutX="183.0" layoutY="27.0" prefHeight="438.0" prefWidth="440.0"
+                 tabClosingPolicy="ALL_TABS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="183.0"
+                 AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0"/>
+    </children>
+</AnchorPane>

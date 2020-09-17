@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="base" prefHeight="400.0" prefWidth="507.0" style="-fx-background-color: white;" stylesheets="@styles/stylesheet.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.PayOutController">
+   <children>
+      <Button layoutX="397.0" layoutY="343.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="43.0" prefWidth="74.0" text="Home" textFill="WHITE" />
+      <TableView fx:id="tab" layoutX="29.0" layoutY="32.0" prefHeight="290.0" prefWidth="442.0">
+        <columns>
+          <TableColumn fx:id="nameCOL" prefWidth="349.0" text="Name" />
+          <TableColumn fx:id="salaryCOL" minWidth="0.0" prefWidth="92.0" text="Salary" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
